@@ -1,0 +1,33 @@
+name: Build LaTeX Documents
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest  # Runner environment
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Set up LaTeX Environment
+        uses: docker://blang/latex
+
+      - name: Build LaTeX Documents
+        run: |
+          cd template-rapport
+          mkdir -p build/src
+          latexmk -cd -outdir=./build -auxdir=./build -interaction=batchmode -pdf ./template-rapport.tex
+
+      - name: Upload PDFs
+        uses: actions/upload-artifact@v2
+        with:
+          name: pdfs
+          path: template-rapport/build/*.pdf
+
