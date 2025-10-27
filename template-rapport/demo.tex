@@ -1,0 +1,49 @@
+\section{Exemple de titre de section}
+
+\todo[inline]{Exemple de description du contenu du paragraphe}
+Write actual content here.
+You can split long line.
+Like that.
+
+You can also create new paragraph by adding a blank line.
+
+\subsection{Exemples de TODO}
+
+\todoGoal{Exemple de description du contenu du paragraphe}
+\todoDoing{Changer la ligne \texttt{\textbackslash todoGoal} en \texttt{\textbackslash todoDoing} avant de travailler sur un paragraph.}
+\todoDone{Écrivez en \texttt{\textbackslash todoDone} lorsque que vous croyez que le paragraphe est terminé.}
+\missingfigure{Inscrivez \texttt{\textbackslash missingfigure} si vous voules insérer une figure}
+
+\section{Ajouter un tableau}
+
+\begin{table}[h!]
+    \centering
+    \caption{Titre du \textsubscript{super} tableau}
+    \begin{tabular}{lllll}
+        \hline
+        Col1    & Col2    & Col3    & Col4    & Col5\\
+        (unité) & (unité) & (unité) & (unité) & (unité)\\
+        \hline\hline
+        data & data & data & data & data\\
+        data & data & data & data & data\\
+        data & data & data & data & data\\
+        data & data & data & data & data\\
+        \hline
+    \end{tabular}
+    \label{tab:template-Vout}
+\end{table}
+
+\section{Ajouter une citation}
+
+On peut citer
+une figure (figure \ref{fig:template-example-image}) ou
+un tableau \ref{tab:template-Vout}.
+
+\section{Ajouter une image}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{example-image-a}
+    \caption{Description de l'image.}
+    \label{fig:template-example-image}
+\end{figure}

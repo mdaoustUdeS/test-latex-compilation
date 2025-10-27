@@ -1,0 +1,69 @@
+\documentclass[11pt, french]{article}
+
+\usepackage[letterpaper, hmargin=1.25in, vmargin=1in]{geometry}
+
+\usepackage[pdftex,colorlinks,linkcolor=black,urlcolor=black,citecolor=black]{hyperref}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usepackage{babel}
+\usepackage[autolanguage]{numprint}
+
+\usepackage{times}
+
+\usepackage{graphicx}
+\usepackage{float}
+
+\usepackage{parskip}
+
+\usepackage{setspace}
+\setstretch{1.5}
+
+\usepackage[font=bf, tableposition=top]{caption}
+
+\usepackage{placeins}
+
+\usepackage[colorinlistoftodos]{todonotes}
+\newcommand{\todoGoal}[2][]{\todo[color=red!50, inline, #1]{#2}}
+\newcommand{\todoDoing}[2][]{\todo[color=yellow, inline, #1]{#2}}
+\newcommand{\todoDone}[2][]{\todo[color=green, inline, #1]{#2}}
+
+\begin{document}
+
+\listoftodos
+
+\renewcommand{\tablename}{Tableau}
+\renewcommand{\listfigurename}{Liste des figures}
+
+\begin{spacing}{1}
+    \input{titlepage}
+\end{spacing}
+
+\pagenumbering{roman}
+
+\begin{spacing}{1}
+    \tableofcontents
+\end{spacing}
+
+\newpage
+
+\begin{spacing}{1}
+    \listoffigures
+\end{spacing}
+
+\newpage
+
+\begin{spacing}{1}
+    \listoftables
+\end{spacing}
+
+\newpage
+
+\pagenumbering{arabic}
+
+\input{content}
+\newpage
+\input{demo}
+
+\end{document}
