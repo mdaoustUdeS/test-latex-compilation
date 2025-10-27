@@ -14,7 +14,7 @@ jobs:
 
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Set up LaTeX Environment
         uses: docker://blang/latex
@@ -26,7 +26,7 @@ jobs:
           latexmk -cd -outdir=./build -auxdir=./build -interaction=batchmode -pdf ./template-rapport.tex
 
       - name: Upload PDFs
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: pdfs
           path: template-rapport/build/*.pdf
