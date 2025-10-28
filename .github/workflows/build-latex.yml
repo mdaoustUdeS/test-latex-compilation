@@ -1,4 +1,6 @@
 name: Build LaTeX Documents
+env:
+  CONTAINER: blang/latex
 
 on:
   push:
@@ -10,19 +12,19 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
-    container:
-      image: blang/latex
+    runs-on: ubuntu-latest 
 
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
+      - name: Set up Docker
+        run: |
+          docker pull $CONTAINER
+
       - name: Build LaTeX Documents
         run: |
-          cd template-rapport
-          mkdir -p build/src
-          latexmk -cd -outdir=./build -auxdir=./build -interaction=batchmode -pdf ./template-rapport.tex
+          docker run --rm -v ${{ github.workspace }}:/data $CONTAINER latexmk -cd -outdir=/data/template-rapport/build -auxdir=/data/template-rapport/build -interaction=batchmode -pdf /data/template-rapport/template-rapport.tex
 
       - name: Upload PDFs
         uses: actions/upload-artifact@v4
