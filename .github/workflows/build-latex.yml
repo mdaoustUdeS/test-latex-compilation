@@ -18,15 +18,15 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Set up Docker
+      - name: Pull Docker image
         run: |
           docker pull $CONTAINER
 
-      - name: Build LaTeX Documents
+      - name: Start Docker Container
         run: |
-          docker run --name build-container -d -v ${{ github.workspace }}:/workspace $CONTAINER
+          docker run --name build-container -d -v ${{ github.workspace }}:/workspace $CONTAINER tail -f /dev/null
 
-      - name: Build
+      - name: Build LaTeX Documents
         env:
           SCRIPT: |
             cd workspace/template-rapport
@@ -37,6 +37,6 @@ jobs:
       - name: Upload PDFs
         uses: actions/upload-artifact@v4
         with:
-          name: pdfs
+          name: artifacts
           path: template-rapport/build/*.pdf
 
