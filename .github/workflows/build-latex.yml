@@ -30,7 +30,6 @@ jobs:
       - name: Build LaTeX Documents
         env:
           SCRIPT: |
-            pwd && ls -la
             cd template-rapport
             mkdir -p build/src
             latexmk -cd -outdir=./build -auxdir=./build -interaction=batchmode -pdf ./template-rapport.tex
@@ -40,5 +39,5 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: artifacts
-          path: '**/*.pdf'
+          path: */*/.pdf
 
