@@ -23,8 +23,11 @@ jobs:
           docker pull $CONTAINER
 
       - name: Build LaTeX Documents
+        env:
+          SCRIPT: |
+            latexmk -cd -outdir=/data/template-rapport/build -auxdir=/data/template-rapport/build -interaction=batchmode -pdf /data/template-rapport/template-rapport.tex
         run: |
-          docker run --rm -v ${{ github.workspace }}:/data $CONTAINER latexmk -cd -outdir=/data/template-rapport/build -auxdir=/data/template-rapport/build -interaction=batchmode -pdf /data/template-rapport/template-rapport.tex
+          docker run --rm -v ${{ github.workspace }}:/data $CONTAINER $SCRIPT
 
       - name: Upload PDFs
         uses: actions/upload-artifact@v4
