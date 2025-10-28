@@ -30,7 +30,7 @@ jobs:
         env:
           SCRIPT: |
             pwd && ls -la
-            cd workspace/template-rapport
+            cd template-rapport
             mkdir -p build/src
             latexmk -cd -outdir=./build -auxdir=./build -interaction=batchmode -pdf ./template-rapport.tex
         run: docker exec build-container bash -c "$SCRIPT"
