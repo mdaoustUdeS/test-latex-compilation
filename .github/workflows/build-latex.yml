@@ -29,6 +29,7 @@ jobs:
       - name: Build LaTeX Documents
         env:
           SCRIPT: |
+            pwd && ls -la
             cd workspace/template-rapport
             mkdir -p build/src
             latexmk -cd -outdir=./build -auxdir=./build -interaction=batchmode -pdf ./template-rapport.tex
