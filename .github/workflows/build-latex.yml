@@ -38,5 +38,5 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: artifacts
-          path: template-rapport/build/*.pdf
+          path: '**/*.pdf'
 
