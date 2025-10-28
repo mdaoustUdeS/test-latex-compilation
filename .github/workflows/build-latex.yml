@@ -25,7 +25,7 @@ jobs:
       - name: Build LaTeX Documents
         env:
           SCRIPT: |
-            latexmk -cd -outdir=/data/template-rapport/build -auxdir=/data/template-rapport/build -interaction=batchmode -pdf /data/template-rapport/template-rapport.tex
+            latexmk -cd -outdir=./template-rapport/build -auxdir=./template-rapport/build -interaction=batchmode -pdf ./template-rapport/template-rapport.tex
         run: |
           docker run --rm -v ${{ github.workspace }}:/data $CONTAINER $SCRIPT
 
