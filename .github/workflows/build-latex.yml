@@ -24,7 +24,8 @@ jobs:
 
       - name: Start Docker Container
         run: |
-          docker run --name build-container -d -v ${{ github.workspace }}:/workspace $CONTAINER tail -f /dev/null
+          echo ${{ github.workspace }}
+          docker run --name build-container -d -v ${{ github.workspace }}:/data $CONTAINER tail -f /dev/null
 
       - name: Build LaTeX Documents
         env:
